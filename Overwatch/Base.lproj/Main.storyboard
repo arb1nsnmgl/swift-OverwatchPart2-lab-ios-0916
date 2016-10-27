@@ -1,8 +1,81 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GYL-22-rZr">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Selection View Controller-->
+        <scene sceneID="5lt-NC-s7G">
+            <objects>
+                <viewController id="GYL-22-rZr" customClass="SelectionViewController" customModule="Overwatch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="z8f-AC-pGq"/>
+                        <viewControllerLayoutGuide type="bottom" id="cR2-hp-cdF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="83F-ks-0eR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ril-BL-4vr">
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DBh-W4-qHR">
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2TQ-Ca-shR">
+                                        <frame key="frameInset" minX="-1" width="373" height="369"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="GYL-22-rZr" id="vJM-qV-8dU"/>
+                                        </connections>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="WrD-5a-mXg">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="wKU-no-Zbn"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Offense"/>
+                                    <segment title="Defense"/>
+                                    <segment title="Tank"/>
+                                    <segment title="Support"/>
+                                </segments>
+                                <connections>
+                                    <action selector="heroType:" destination="GYL-22-rZr" eventType="valueChanged" id="hFH-zP-2XS"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ril-BL-4vr" firstAttribute="centerY" secondItem="83F-ks-0eR" secondAttribute="centerY" multiplier="0.35" id="35a-KV-o4K"/>
+                            <constraint firstItem="ril-BL-4vr" firstAttribute="height" secondItem="83F-ks-0eR" secondAttribute="height" multiplier="0.1" id="8gH-ss-CZD"/>
+                            <constraint firstItem="ril-BL-4vr" firstAttribute="centerX" secondItem="83F-ks-0eR" secondAttribute="centerX" id="9pA-OT-iNP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WrD-5a-mXg" secondAttribute="trailing" id="BYI-Bv-HAq"/>
+                            <constraint firstItem="DBh-W4-qHR" firstAttribute="centerY" secondItem="83F-ks-0eR" secondAttribute="centerY" multiplier="1.3" id="FtW-ve-ySu"/>
+                            <constraint firstItem="DBh-W4-qHR" firstAttribute="centerX" secondItem="83F-ks-0eR" secondAttribute="centerX" id="M9K-9o-z62"/>
+                            <constraint firstItem="DBh-W4-qHR" firstAttribute="height" secondItem="83F-ks-0eR" secondAttribute="height" multiplier="0.5" id="XUr-3W-Emh"/>
+                            <constraint firstItem="ril-BL-4vr" firstAttribute="width" secondItem="83F-ks-0eR" secondAttribute="width" multiplier="0.7" id="Z6v-Ql-4br"/>
+                            <constraint firstItem="WrD-5a-mXg" firstAttribute="leading" secondItem="83F-ks-0eR" secondAttribute="leadingMargin" id="hIo-k4-uG2"/>
+                            <constraint firstItem="DBh-W4-qHR" firstAttribute="width" secondItem="83F-ks-0eR" secondAttribute="width" multiplier="0.9" id="hfZ-Kf-4qv"/>
+                            <constraint firstItem="WrD-5a-mXg" firstAttribute="top" secondItem="DBh-W4-qHR" secondAttribute="bottom" constant="10" id="mc4-hq-mOd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="DBh-W4-qHR" id="ry4-E9-hI1"/>
+                        <outlet property="heroNameLabel" destination="ril-BL-4vr" id="Wav-za-KHx"/>
+                        <outlet property="heroScrollView" destination="2TQ-Ca-shR" id="tQt-h0-z39"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aXW-Us-hQL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1308.6956521739132" y="117.39130434782609"/>
+        </scene>
+    </scenes>
 </document>
